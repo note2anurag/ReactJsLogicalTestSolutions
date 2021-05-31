@@ -1,0 +1,105 @@
+<html>
+<body>
+
+<h2>React Js Basic Logical Test Solutions  </h2>
+<h3> Inspect to see Output in Console</h3>
+
+<script>
+
+console.log('------#----- React Js Basic Logical Test - Solutions -----------# ')
+//---------------------------------------------------------//
+console.log('------ Question- 1 ------')
+
+let getEvenNumbers = () => {
+    const randomNum = [1,3,4,5,7,8,14,21,20,32,36,40,45,76];	
+    let evenNum = randomNum.filter(number => number % 2 === 0);
+    console.log('Even Numbers: ' + evenNum);
+}
+getEvenNumbers();
+
+//---------------------------------------------------------//
+console.log('------ Question- 2 ------')
+
+const binaryArr = [1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1];
+const consecutiveOnes = (arr) => {
+   let left = 0;
+   let right = 0;
+   let max = 0;
+   while (right < arr.length) {
+      if (arr[right] === 0) {
+         if (right - left > max) {
+            max = right - left
+         };
+         right++;
+         left = right;
+      } else {
+         right++
+      };
+   };
+   return right - left > max ? `Consecutive Ones: ${right - left}` : `Consecutive Ones: ${max}`;
+};
+console.log(consecutiveOnes(binaryArr));
+
+//---------------------------------------------------------//
+console.log('------ Question- 3 ------')
+
+let sortedArr = [0,1,2,3,4,5,6,7,7,8,9,10]
+const repeatedNumber = arr => {
+    let object = {};
+    let result = [];
+
+    arr.forEach(item => {
+      if(!object[item])
+          object[item] = 0;
+        object[item] += 1;
+    })
+
+    for (let prop in object) {
+       if(object[prop] >= 2) {
+           result.push(prop);
+       }
+    }
+    return result;
+
+};
+console.log(repeatedNumber(sortedArr));
+
+//---------------------------------------------------------//
+console.log('------ Question- 4 .------')
+console.log ('Solution for question-4 is loading Asynchronously. This may take some time')
+// api url
+const api_url = "https://my-json-server.typicode.com/typicode/demo/posts";
+//Initializing Async function
+async function getapi(url) {
+    const response = await fetch(url);
+    const data = await response.json();
+    console.log('Solution for question-4 has been loaded, see data below')
+    console.log(data);
+}
+// Calling async function
+getapi(api_url)
+
+//---------------------------------------------------------//
+console.log('------ Question- 5 ------')
+let arrOfObj = [
+    {id : 4, name : '“abc”'},
+    {id : 10, name : '“ab2”'},
+    {id : 5, name : '“abc3”'},
+    {id : 6, name : '“abc5”'},
+    {id : 1, name : '“abc6”'}
+]
+   console.log('unsorted Array of Object')
+   console.log(arrOfObj)
+
+   arrOfObj.sort((a,b) =>  (a.id > b.id) ? 1 : -1 )
+   console.log('Array of Object sorted by Id value')
+   console.log(arrOfObj)
+
+//---------------------------------------------------------//
+console.log('------ END OF TEST------')
+//---------------------------------------------------------//
+
+</script>
+
+</body>
+</html>
